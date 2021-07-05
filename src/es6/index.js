@@ -142,9 +142,52 @@ const helloPromise = () => {
     })
 }
 
-// llamar 
+// llamar promise
 
 helloPromise()
     .then(response => console.log(response))
     .then(() => console.log('hola'))
     .catch(error => console.log(error))
+
+/**
+ * Clases, Módulos y Generadores
+ */
+
+//calses
+class calculator {
+    constructor() {
+        this.valueA = 0;
+        this.valueB = 0;
+
+    }
+    sum(a, b) {
+        this.valueA = a;
+        this.valueB = b;
+        return this.valueA + this.valueB;
+    }
+
+}
+// llamando funcion de la clase
+const calc = new calculator();
+console.log(calc.sum(12, 2));
+
+//module
+
+import { hello } from './module';
+hello();
+
+//Generadores
+
+function* helloWorld() {
+    if (true) {
+        yield 'hello, ';
+    }
+    if (true) {
+        yield ' world';
+    }
+}
+
+const generatorHello = helloWorld();
+console.log(generatorHello.next());
+console.log(generatorHello.next());
+console.log(generatorHello.next());// arroja undefined
